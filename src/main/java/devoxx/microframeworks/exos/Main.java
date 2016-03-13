@@ -41,8 +41,9 @@ public class Main {
         post("api/cellar/drink/:wid", cellarRoute::handleDrink, encoder);
         post("api/cellar/favorite/:wid", cellarRoute::handleFavorite, encoder);
 
-        // TODO Exercice 2.3: ajouter la route pour le commentaire
+        // Comment
         CommentRoute commentRoute = new CommentRoute();
+        post("api/wine/:wid/comments", commentRoute::handleAddComment, encoder);
 
         // Order
         OrderRoute orderRoute = new OrderRoute();

@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import spark.Request;
 import spark.Response;
 
+import java.time.Instant;
+
 public class CommentRoute {
     private static final Logger LOG = LoggerFactory.getLogger(CommentRoute.class);
     private final CommentService commentService;
@@ -22,10 +24,16 @@ public class CommentRoute {
     }
 
     public Comment handleAddComment(Request request, Response response) {
-        // TODO Exercice 2.3: creer un commentaire, on doit retourner le commentaire qui est créer.
-        // Note: la date doit correspondre au format ISO-8601, utilisé java.time.Instant#toString()
+        User user = getUser(request);
+        String wid = request.params("wid");
 
-        return null;
+        Comment comment = new Comment();
+        comment.setEmail(user.getEmail());
+        comment.setAuthor(user.getName());
+        comment.setMessage(request.body());
+        comment.setDate(Instant.now().toString());
+
+        return commentService.addComment(wid, comment);
     }
 
     private User getUser(Request request) {
