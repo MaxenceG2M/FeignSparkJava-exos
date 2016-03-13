@@ -30,14 +30,16 @@ public class WineRoute {
         String wid = request.params("wid");
         LOG.info("Wine {}", wid);
         WineDetail result = new WineDetail();
-        // TODO Exercice 2.1: utiliser les services pour remplir le résultat
         // TODO Exercice Bonus 2.5: utiliser les CompletableFuture de Java 8 pour exécuter le code de façon asynchrone
+        result.setWine(referenceService.findById(wid));
+        result.setComments(commentService.findByWine(wid));
+        result.setStock(stockService.findByWine(wid));
         return result;
     }
 
     public List<Wine> handleSearch(Request request, Response response) {
         String query = request.queryParams("q");
         LOG.info("Search wines {}", query);
-        return null; // TODO Exercice 2.1: retourner les 20 premiers vins correspondant à la recherche
+        return referenceService.search(query);
     }
 }
