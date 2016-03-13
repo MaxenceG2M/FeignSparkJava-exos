@@ -46,8 +46,7 @@
         </dependency>
         <dependency>
             <groupId>com.netflix.feign</groupId>
-            <!--TODO Exercice Bonus 1.5: Utiliser Jackson pour encoder/décoder le JSON-->
-            <artifactId>feign-gson</artifactId>
+            <artifactId>feign-jackson</artifactId>
             <version>${feign.version}</version>
         </dependency>
 

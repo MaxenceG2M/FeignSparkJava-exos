@@ -6,8 +6,8 @@ import devoxx.microframeworks.exos.models.CellarEntry;
 import devoxx.microframeworks.exos.services.CellarService;
 import devoxx.microframeworks.exos.services.Services;
 import feign.*;
-import feign.gson.GsonDecoder;
-import feign.gson.GsonEncoder;
+import feign.jackson.JacksonDecoder;
+import feign.jackson.JacksonEncoder;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,8 +30,8 @@ public class Exo_2_2 {
         int port = TestUtils.awaitRunningPort();
 
         cellar = new Feign.Builder()
-                .encoder(new GsonEncoder())
-                .decoder(new GsonDecoder())
+                .encoder(new JacksonEncoder())
+                .decoder(new JacksonDecoder())
                 .target(Cellar.class, "http://localhost:" + port + "/");
 
         // Ensure toto has something in his cellar

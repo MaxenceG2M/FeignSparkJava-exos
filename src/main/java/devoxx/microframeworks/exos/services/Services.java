@@ -6,8 +6,8 @@ import feign.Feign;
 import feign.FeignException;
 import feign.Response;
 import feign.Util;
-import feign.gson.GsonDecoder;
-import feign.gson.GsonEncoder;
+import feign.jackson.JacksonDecoder;
+import feign.jackson.JacksonEncoder;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -39,10 +39,9 @@ public enum Services {
 
     private <T> T createFeignService(Class<T> aClass, String url) {
         return new Feign.Builder()
-                // TODO Exercice Bonus 1.5: Utiliser Jackson pour encoder/décoder le JSON
                 // TODO Exercice Bonus 1.6: Logger les appels via Feign
-                .encoder(new GsonEncoder())
-                .decoder(new GsonDecoder())
+                .encoder(new JacksonEncoder())
+                .decoder(new JacksonDecoder())
                 .errorDecoder(this::decodeError)
                 .target(aClass, url);
     }

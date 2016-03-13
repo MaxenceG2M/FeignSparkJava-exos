@@ -5,8 +5,8 @@ import devoxx.microframeworks.exos.TestUtils;
 import devoxx.microframeworks.exos.models.CellarEntry;
 import devoxx.microframeworks.exos.models.Comment;
 import feign.*;
-import feign.gson.GsonDecoder;
-import feign.gson.GsonEncoder;
+import feign.jackson.JacksonDecoder;
+import feign.jackson.JacksonEncoder;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,8 +29,8 @@ public class Exo_2_4 {
         int port = TestUtils.awaitRunningPort();
 
         errorTester = new Feign.Builder()
-                .encoder(new GsonEncoder())
-                .decoder(new GsonDecoder())
+                .encoder(new JacksonEncoder())
+                .decoder(new JacksonDecoder())
                 .target(ErrorTester.class, "http://localhost:" + port + "/");
     }
 
