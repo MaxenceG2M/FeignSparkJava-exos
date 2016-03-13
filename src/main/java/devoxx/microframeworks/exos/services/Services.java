@@ -9,6 +9,9 @@ import feign.Util;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
@@ -17,6 +20,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public enum Services {
     INSTANCE;
+
+    public static final Logger LOG_FEIGN = LoggerFactory.getLogger("FEIGN");
 
     private final Map<Class<?>, Object> map;
 
@@ -43,6 +48,7 @@ public enum Services {
                 .encoder(new JacksonEncoder())
                 .decoder(new JacksonDecoder())
                 .errorDecoder(this::decodeError)
+                .requestInterceptor(template -> LOG_FEIGN.info("request: {}", template))
                 .target(aClass, url);
     }
 
