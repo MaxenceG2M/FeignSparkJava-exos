@@ -1,12 +1,12 @@
 package devoxx.microframeworks.exos;
 
-import devoxx.microframeworks.exos.routes.CellarRoute;
-import devoxx.microframeworks.exos.routes.CommentRoute;
-import devoxx.microframeworks.exos.routes.OrderRoute;
-import devoxx.microframeworks.exos.routes.WineRoute;
+import devoxx.microframeworks.exos.routes.*;
 import devoxx.microframeworks.exos.services.AuthenticationService;
 import devoxx.microframeworks.exos.services.ReferenceService;
+import feign.FeignException;
 import spark.ResponseTransformer;
+
+import java.util.NoSuchElementException;
 
 import static spark.Spark.*;
 
@@ -49,7 +49,12 @@ public class Main {
         OrderRoute orderRoute = new OrderRoute();
         post("api/cart/order", orderRoute::handleOrder, encoder);
 
-        // TODO Exercice 2.4: gèrer les errueurs
+        // Errors
+        ErrorRoute errorRoute = new ErrorRoute();
+        exception(NoSuchElementException.class, errorRoute::handleNotFound);
+        exception(IllegalArgumentException.class, errorRoute::handleBadRequest);
+        exception(SecurityException.class, errorRoute::handleForbidden);
+        exception(FeignException.class, errorRoute::handleFeignException);
 
         // CORS
         options("/*", (request, response) -> "");
