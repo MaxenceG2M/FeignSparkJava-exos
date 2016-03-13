@@ -1,17 +1,21 @@
 package devoxx.microframeworks.exos.services;
 
 import devoxx.microframeworks.exos.models.Wine;
+import feign.Param;
+import feign.RequestLine;
 
 import java.util.List;
 
-// TODO Exercice 1.2: ajouter les annotations feign
 public interface ReferenceService {
 
+    @RequestLine("GET /api/wines")
     List<Wine> findAll();
 
-    Wine findById(String id);
+    @RequestLine("GET /api/wines/{id}")
+    Wine findById(@Param("id") String id);
 
-    List<Wine> search(String query);
+    @RequestLine("GET /api/wines?q={query}")
+    List<Wine> search(@Param("query") String query);
 
 
 }
