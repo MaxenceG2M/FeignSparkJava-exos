@@ -35,11 +35,11 @@ public class Main {
         get("api/wine/:wid", wineRoute::handleFindById, encoder);
         get("api/wine", wineRoute::handleSearch, encoder);
 
-        // TODO Exercice 2.2: déclarer les routes pour la cave
+        // Cellar
         CellarRoute cellarRoute = new CellarRoute();
-        // get("api/cellar", ...);
-        // post("api/cellar/drink/:wid", ...);
-        // post("api/cellar/favorite/:wid", ...);
+        get("api/cellar", cellarRoute::handleMyCellar, encoder);
+        post("api/cellar/drink/:wid", cellarRoute::handleDrink, encoder);
+        post("api/cellar/favorite/:wid", cellarRoute::handleFavorite, encoder);
 
         // TODO Exercice 2.3: ajouter la route pour le commentaire
         CommentRoute commentRoute = new CommentRoute();

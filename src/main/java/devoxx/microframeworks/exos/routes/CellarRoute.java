@@ -26,22 +26,22 @@ public class CellarRoute {
     public List<CellarEntry> handleMyCellar(Request request, Response response) {
         User user = this.getUser(request);
         LOG.info("Get cellar for {}", user.getEmail());
-        return null; // TODO Exercice 2.2: retourner la cave de l'utilisateur
+        return cellarService.getCellar(user.getEmail());
     }
 
     public int handleDrink(Request request, Response response) {
         User user = this.getUser(request);
-        String wid = null; // TODO Exercice 2.2: récupérer le paramètre
+        String wid = request.params("wid");
         LOG.info("{} drink {}", user, wid);
-        return -1; // TODO Exercice 2.2: décrémenter le nombre de bouteilles de l'utilisateur pour ce vin
+        return cellarService.addQuantity(user.getEmail(), wid, -1);
     }
 
     public boolean handleFavorite(Request request, Response response) {
         User user = this.getUser(request);
-        String wid = null; // TODO Exercice 2.2: récupérer le paramètre
-        boolean favorite = false; // TODO Exercice 2.2: récupérer le body
+        String wid = request.params("wid");
+        boolean favorite = Boolean.parseBoolean(request.body());
         LOG.info("{} favorite:{} {}", user, favorite, wid);
-        return false; // TODO Exercice 2.2: mettre à jour le favorit pour de ce vin pour l'utilisateur
+        return cellarService.setFavorite(user.getEmail(), wid, favorite);
     }
 
     private User getUser(Request request) {
