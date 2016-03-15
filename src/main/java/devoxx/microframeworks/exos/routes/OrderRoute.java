@@ -37,8 +37,9 @@ public class OrderRoute {
         User user = this.getUser(request);
         Order order = Routes.parseBody(request, Order.class);
         LOG.info("{} create order {}", user, order);
-        // TODO Exercice Bonus 2.5: utiliser le stream parallèle de Java 8 pour exécuter le code de façon asynchrone
+
         return order.getEntries().stream()
+                .parallel()
                 .map(orderEntry -> applyOrder(orderEntry, user))
                 .collect(Collectors.toList());
     }

@@ -12,28 +12,51 @@ import spark.Request;
 import spark.Response;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
+import static java.util.concurrent.CompletableFuture.allOf;
+import static java.util.concurrent.CompletableFuture.completedFuture;
 
 public class WineRoute {
     private static final Logger LOG = LoggerFactory.getLogger(CellarRoute.class);
     private final ReferenceService referenceService;
     private final CommentService commentService;
     private final StockService stockService;
+    private final Executor executor;
 
     public WineRoute() {
         super();
         this.referenceService = Services.INSTANCE.get(ReferenceService.class);
         this.commentService = Services.INSTANCE.get(CommentService.class);
         this.stockService = Services.INSTANCE.get(StockService.class);
+        this.executor = Executors.newCachedThreadPool();
     }
 
     public WineDetail handleFindById(Request request, Response response) {
         String wid = request.params("wid");
         LOG.info("Wine {}", wid);
         WineDetail result = new WineDetail();
-        // TODO Exercice Bonus 2.5: utiliser les CompletableFuture de Java 8 pour exécuter le code de façon asynchrone
-        result.setWine(referenceService.findById(wid));
-        result.setComments(commentService.findByWine(wid));
-        result.setStock(stockService.findByWine(wid));
+        try {
+            allOf(
+                    // get wine
+                    completedFuture(wid)
+                            .thenApplyAsync(referenceService::findById, executor)
+                            .thenAccept(result::setWine),
+                    // get comments
+                    completedFuture(wid)
+                            .thenApplyAsync(commentService::findByWine, executor)
+                            .thenAccept(result::setComments),
+                    // get stock
+                    completedFuture(wid)
+                            .thenApplyAsync(stockService::findByWine, executor)
+                            .thenAccept(result::setStock)
+            ).get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new NoSuchElementException("Wine not found: " + wid);
+        }
         return result;
     }
 
