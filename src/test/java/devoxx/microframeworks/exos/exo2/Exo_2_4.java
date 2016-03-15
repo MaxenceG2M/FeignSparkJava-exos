@@ -44,6 +44,7 @@ public class Exo_2_4 {
     public void testForbidden() throws Exception {
         String token = "plop.plaf.plouf";
         LOG.info("Try with an invalid token: {}", token);
+
         try {
             errorTester.getMyCellar(token);
             fail("Should send a 403");
