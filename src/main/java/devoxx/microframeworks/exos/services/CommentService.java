@@ -1,13 +1,16 @@
 package devoxx.microframeworks.exos.services;
 
 import devoxx.microframeworks.exos.models.Comment;
+import feign.Param;
+import feign.RequestLine;
 
 import java.util.List;
 
-// TODO Exercice 1.3: ajouter les annotations feign
 public interface CommentService {
 
-    List<Comment> findByWine(String wineId);
+    @RequestLine("GET /api/wines/{id}/comments")
+    List<Comment> findByWine(@Param("id") String wineId);
 
-    Comment addComment(String wineId, Comment comment);
+    @RequestLine("POST /api/wines/{id}/comments")
+    Comment addComment(@Param("id") String wineId, Comment comment);
 }
