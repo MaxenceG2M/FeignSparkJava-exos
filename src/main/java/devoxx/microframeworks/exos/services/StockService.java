@@ -1,23 +1,15 @@
 package devoxx.microframeworks.exos.services;
 
 import devoxx.microframeworks.exos.models.Stock;
+import feign.Param;
+import feign.RequestLine;
 
-// TODO Exercice 1.4: remplacer par une interface puis ajouter les annotations feign
-// Ceci est l'implémentation réalisé par un stagiaire
-public class StockService {
+public interface StockService {
 
-    public Stock findByWine(String wid) {
-        // ──▒▒▒▒▒──
-        // ─▒─▄▒─▄▒─
-        // ─▒▒▒▒▒▒▒─
-        // ─▒▒▒▒▒▒▒─
-        // ─▒─▒─▒─▒─
+    @RequestLine("GET /api/wines/{id}/qty")
+    Stock findByWine(@Param("id") String wid);
 
-        return null;
-    }
-
-    public String createOrder(String wid, int quantity) {
-        return "#yolo";
-    }
+    @RequestLine("POST /api/wines/{id}/order?qty={qty}")
+    String createOrder(@Param("id")String wid, @Param("qty") int quantity);
 
 }
