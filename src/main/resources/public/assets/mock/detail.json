@@ -1,0 +1,52 @@
+{
+  "wine": {
+    "id": "024bfab2-6c91-4687-88c4-2cac7df6bfc3",
+    "produit": "JACQUERE 2015 - DOMAINE DE ROUZAN",
+    "millesime": 2015,
+    "appellation": "Savoie AOP",
+    "couleur": "Vin Blanc",
+    "region": "Savoie",
+    "pays": "France",
+    "cepageDominant": "100% Jacquère",
+    "alcool": "11% vol",
+    "contenance": "0,75 L",
+    "image": "jacquere-domaine-de-rouzan.jpg",
+    "aBoireAPartirDe": 2015,
+    "garderJusquA": 2018,
+    "auNez": "Notes amyliques et fleuries: banane et pêche, fleurs d'oranger",
+    "enBouche": "Bouche fraîche et équilibrée",
+    "aOeil": "Robe pâle à reflets verts et jaunes.",
+    "service": "En bouteille",
+    "temperatureDeService": "8-10°C",
+    "accordsRecommandes": "Soufflé au gruyère, fondue...",
+    "accordsMetsVin": "Apéritif, Poisson, Coquillage & Crustacé, Fromage",
+    "priceCategory": "LOW"
+  },
+  "stock": {
+    "stock": 10,
+    "price": 5
+  },
+  "comments": [
+    {
+      "id": "9ee0c2c2-2571-4071-9390-470c7d327368",
+      "author": "Maxime.Rolland",
+      "email": "Ambre.Marchand@hotmail.fr",
+      "date": "2016-02-29T10:23:04.007Z",
+      "message": "Ipsa tenetur repellat molestiae.\nDistinctio recusandae impedit.\nConsequatur molestias non provident veritatis."
+    },
+    {
+      "id": "4eeb2263-abc4-4756-8ef6-eee55962c597",
+      "author": "Noa33",
+      "email": "Louis.Lefevre55@gmail.com",
+      "date": "2016-02-28T22:50:47.951Z",
+      "message": "Odio iure architecto quod sed eos iste.\nNon unde ut ex mollitia ipsum fuga.\nVoluptas quia labore excepturi."
+    },
+    {
+      "id": "ea877bf2-278f-40ad-b03a-a7fc1748bffd",
+      "author": "Lucie.Leroux74",
+      "email": "Carla.Carpentier@yahoo.fr",
+      "date": "2016-02-29T10:43:40.657Z",
+      "message": "Molestiae ut tempore sapiente saepe quo porro libero quam magnam.\nDolorem sapiente modi est vel sequi.\nA cupiditate dolores dicta sit."
+    }
+  ]
+}

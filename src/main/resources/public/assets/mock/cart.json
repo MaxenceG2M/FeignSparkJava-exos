@@ -1,0 +1,101 @@
+[
+  {
+    "wine": {
+      "id": "66c27a1b-670d-414e-8fdb-9052dc3e7437",
+      "produit": "CHATEAU LA GRAVETTE LACOMBE 2011",
+      "millesime": 2011,
+      "appellation": "Médoc AOC",
+      "couleur": "Vin Rouge",
+      "region": "Bordeaux",
+      "pays": "France",
+      "cepageDominant": "60% Cabernet-sauvignon, 38% Merlot, 2% Petit-verdot",
+      "alcool": "13% vol",
+      "contenance": "0,75 L",
+      "image": "chateau-la-gravette-lacombe.jpg",
+      "conservation": "A boire et à garder",
+      "aBoireAPartirDe": 2014,
+      "garderJusquA": 2019,
+      "priceCategory": "LOW"
+    },
+    "quantity": 5
+  },
+  {
+    "wine": {
+      "id": "4ea4ff37-ef52-4160-ba9b-24d5084aa835",
+      "produit": "TERRE RONDE 2013 - DOMAINE LE SOLLIER",
+      "millesime": 2013,
+      "appellation": "IGP Cévennes",
+      "couleur": "Vin Rouge",
+      "region": "Languedoc",
+      "pays": "France",
+      "cepageDominant": "50% Syrah, 30% Grenache, 20% Cinsault",
+      "alcool": "13,5% vol",
+      "contenance": "0,75 L",
+      "image": "terre-ronde-domaine-le-sollier.jpg",
+      "conservation": "A boire dans les 2 ans",
+      "auNez": "Nez de fruits frais et d'épices (poivre).",
+      "enBouche": "Bouche fraîche et croquante qui présente une belle complexité. Tanins souples.",
+      "aOeil": "Robe rouge aux nuances rubis.",
+      "service": "Ouvrir 30 min avant le service",
+      "temperatureDeService": "16-18°C",
+      "accordsMetsVin": "Apéritif, Charcuterie, Viande rouge, Viande blanche, Barbecue, Fromage",
+      "priceCategory": "MID"
+    },
+    "quantity": 1
+  },
+  {
+    "wine": {
+      "id": "5b54648d-2804-459a-aaa7-582a043ead08",
+      "produit": "TERRE D'AIXPRESSION - ROSE 2014",
+      "millesime": 2014,
+      "appellation": "Coteaux d'Aix en Provence AOC",
+      "couleur": "Vin Rosé",
+      "region": "Provence",
+      "pays": "France",
+      "bio": "Bio AB",
+      "cepageDominant": "45% Grenache noir, 20% Cinsault, 10% Syrah, 10% Cabernet, 10% Carignan, 5% Vermentino",
+      "alcool": "12% vol",
+      "contenance": "0,75 L",
+      "image": "terre-d-aixpression-rose.jpg",
+      "conservation": "Prêt à boire",
+      "aBoireAPartirDe": 2014,
+      "garderJusquA": 2015,
+      "auNez": "Notes de petits fruits rouges et noirs (cassis, fraise).",
+      "enBouche": "Vin vif, rond et fruité.",
+      "aOeil": "Jolie couleur rose, légèrement soutenue.",
+      "service": "En bouteille",
+      "temperatureDeService": "8-10°C",
+      "accordsRecommandes": "Aïoli, bouillabaisse, roquefort",
+      "accordsMetsVin": "Entrées provençales, Poisson, grillades",
+      "priceCategory": "LOW"
+    },
+    "quantity": 2
+  },
+  {
+    "wine": {
+      "id": "17ea45f7-080d-47fb-bba3-fb619a20aef0",
+      "produit": "COTES DU RHONE 2012 - E. GUIGAL",
+      "millesime": 2012,
+      "appellation": "Côtes du Rhône AOC",
+      "couleur": "Vin Rouge",
+      "region": "Rhône",
+      "pays": "France",
+      "cepageDominant": "60% Syrah, 35% Grenache, 5% Mourvèdre",
+      "alcool": "14% vol",
+      "contenance": "0,75 L",
+      "image": "cotes-du-rhone-guigal-2012.jpg",
+      "conservation": "A boire et à garder",
+      "aBoireAPartirDe": 2014,
+      "garderJusquA": 2022,
+      "auNez": "Arômes de fruits noirs et notes d'épices",
+      "enBouche": "Bouche ample avec des tanins arrondis",
+      "aOeil": "Robe rouge sombre et brillante",
+      "service": "En bouteille",
+      "temperatureDeService": "16-18°C",
+      "accordsRecommandes": "Ragoût, daubes",
+      "accordsMetsVin": "Charcuterie, Gibier, Barbecue, Fromage",
+      "priceCategory": "LOW"
+    },
+    "quantity": 1
+  }
+]
